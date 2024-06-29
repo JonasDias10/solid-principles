@@ -103,7 +103,7 @@ public class InterfaceSegregation {
 
         @Override
         public double calculatePay() {
-            return annualSalary / 12; // Monthly salary
+            return annualSalary / 12;
         }
 
         @Override
