@@ -11,8 +11,8 @@ public class DependencyInversion {
      * low-level modules will impact the high-level module.
      */
     private static class EmployeeService {
-        private EmailService emailService;
-        private DatabaseService databaseService;
+        private final EmailService emailService;
+        private final DatabaseService databaseService;
 
         public EmployeeService() {
             this.emailService = new EmailService();
@@ -53,8 +53,16 @@ public class DependencyInversion {
             return name;
         }
 
+        public void setName(String name) {
+            this.name = name;
+        }
+
         public String getEmail() {
             return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
         }
     }
 }

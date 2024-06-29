@@ -13,7 +13,9 @@ public class InterfaceSegregation {
      */
     private interface Employee {
         String getName();
+        void setName(String name);
         String getEmail();
+        void setEmail(String email);
         double calculatePay();
         double getHoursWorked(); // Not relevant for full-time employees
         double getBenefits(); // Not relevant for part-time employees
@@ -22,8 +24,8 @@ public class InterfaceSegregation {
     private static class PartTimeEmployee implements Employee {
         private String name;
         private String email;
-        private double hourlyRate;
-        private double hoursWorked;
+        private final double hourlyRate;
+        private final double hoursWorked;
 
         public PartTimeEmployee(String name, String email, double hourlyRate, double hoursWorked) {
             this.name = name;
@@ -38,8 +40,18 @@ public class InterfaceSegregation {
         }
 
         @Override
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
         public String getEmail() {
             return email;
+        }
+
+        @Override
+        public void setEmail(String email) {
+            this.email = email;
         }
 
         @Override
@@ -61,7 +73,7 @@ public class InterfaceSegregation {
     private static class FullTimeEmployee implements Employee {
         private String name;
         private String email;
-        private double annualSalary;
+        private final double annualSalary;
 
         public FullTimeEmployee(String name, String email, double annualSalary) {
             this.name = name;
@@ -75,8 +87,18 @@ public class InterfaceSegregation {
         }
 
         @Override
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
         public String getEmail() {
             return email;
+        }
+
+        @Override
+        public void setEmail(String email) {
+            this.email = email;
         }
 
         @Override
