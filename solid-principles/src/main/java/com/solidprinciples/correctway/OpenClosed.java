@@ -1,13 +1,15 @@
 package com.solidprinciples.correctway;
 
+/**
+ * The OpenClosed class demonstrates the Open/Closed Principle (OCP).
+ *
+ * <p>This class defines an abstract base class Employee, encapsulating common attributes such as name, email,
+ * and salary. It serves as a foundation for different types of employees, allowing extension through subclassing
+ * (HourlyEmployee, SalariedEmployee) without modifying the existing codebase. Each subclass provides its own
+ * implementation of the calculatePay() method, enabling varied pay calculation strategies while adhering to the
+ * principle of open for extension and closed for modification.
+ */
 public class OpenClosed {
-    /**
-     * The Employee class represents a basic employee with a name, email, and salary.
-
-     * This class is designed as an abstract class to adhere to the Open/Closed Principle (OCP).
-     * It provides a general structure for different types of employees and allows extending
-     * without modifying the existing code.
-     */
     private abstract static class Employee {
         private String name;
         private String email;
@@ -46,12 +48,6 @@ public class OpenClosed {
         public abstract double calculatePay();
     }
 
-    /**
-     * The HourlyEmployee class represents an employee who is paid based on the number of hours worked.
-
-     * This class adheres to the Open/Closed Principle (OCP) as it extends the Employee class and provides
-     * specific implementation for hourly employees without modifying the base Employee class.
-     */
     private static class HourlyEmployee extends Employee {
         private double hoursWorked;
 
@@ -74,12 +70,6 @@ public class OpenClosed {
         }
     }
 
-    /**
-     * The SalariedEmployee class represents an employee who is paid a fixed salary.
-
-     * This class adheres to the Open/Closed Principle (OCP) as it extends the Employee class and provides
-     * specific implementation for salaried employees without modifying the base Employee class.
-     */
     private static class SalariedEmployee extends Employee {
         public SalariedEmployee(String name, String email, double salary) {
             super(name, email, salary);

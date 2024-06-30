@@ -1,13 +1,24 @@
 package com.solidprinciples.correctway;
 
+/**
+ * The Employee class hierarchy demonstrates the Liskov Substitution Principle (LSP)
+ * by defining a common interface for all types of employees, ensuring interchangeability
+ * between subclasses where an Employee is expected.
+ *
+ * <p>It includes two concrete implementations: PartTimeEmployee and FullTimeEmployee,
+ * each inheriting from the abstract base class Employee. PartTimeEmployee calculates
+ * pay based on hourly rate and hours worked, while FullTimeEmployee calculates pay
+ * based on an annual salary.
+ *
+ * <p>The EmployeeService class exemplifies usage of polymorphism where it accepts
+ * any Employee subtype and calculates their pay using the calculatePay() method,
+ * demonstrating adherence to the LSP.
+ *
+ * <p>Example usage in the main method showcases creating instances of PartTimeEmployee
+ * and FullTimeEmployee, calculating their pay using EmployeeService, and printing
+ * the results.
+ */
 public class LiskovSubstitution {
-    /**
-     * The Employee class represents a basic employee with a name, email, and salary.
-
-     * This class adheres to the Liskov Substitution Principle (LSP) by providing a common interface
-     * for all types of employees, ensuring that subclasses like PartTimeEmployee and FullTimeEmployee
-     * can be used interchangeably where an Employee is expected.
-     */
     private abstract static class Employee {
         private String name;
         private String email;

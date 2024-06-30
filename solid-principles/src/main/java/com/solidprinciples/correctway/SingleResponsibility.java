@@ -1,12 +1,18 @@
 package com.solidprinciples.correctway;
 
+/**
+ * This class demonstrates the Single Responsibility Principle (SRP).
+ *
+ * <p>It defines an Employee class that represents a basic employee with attributes such as
+ * name, email, and salary. The Employee class adheres to SRP by encapsulating only the
+ * properties and basic details of an employee.
+ *
+ * <p>Additionally, the class includes a SalaryCalculator class responsible for calculating
+ * the pay of an employee. This separation of concerns ensures that the Employee class focuses
+ * solely on representing an employee's data, while the SalaryCalculator class handles the
+ * responsibility of computing salaries based on a predefined logic.
+ */
 public class SingleResponsibility {
-    /**
-     * The Employee class represents a basic employee with a name, email, and salary.
-
-     * This class adheres to the Single Responsibility Principle (SRP) as it only
-     * encapsulates the properties and basic details of an employee.
-     */
     private static class Employee {
         private String name;
         private String email;
@@ -43,13 +49,6 @@ public class SingleResponsibility {
         }
     }
 
-    /**
-     * The SalaryCalculator class is responsible for calculating the salary of an employee.
-
-     * This class adheres to the Single Responsibility Principle (SRP) as it only
-     * focuses on the salary calculation logic, and it can be easily extended to support
-     * different salary calculation strategies in the future.
-     */
     private static class SalaryCalculator {
         public double calculatePay(Employee employee) {
             return employee.getSalary() * 1.1;

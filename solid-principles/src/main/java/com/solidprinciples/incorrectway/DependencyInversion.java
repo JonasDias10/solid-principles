@@ -1,15 +1,17 @@
 package com.solidprinciples.incorrectway;
 
+/**
+ * This class illustrates a violation of the Dependency Inversion Principle (DIP).
+ * It directly depends on low-level modules, namely EmailService and DatabaseService,
+ * rather than depending on abstractions. According to DIP, high-level modules should
+ * not depend on low-level modules; instead, both should depend on abstractions.
+ *
+ * <p>The tight coupling between EmployeeService, EmailService, and DatabaseService makes
+ * the code difficult to maintain and test. Any changes to the implementation of
+ * EmailService or DatabaseService will directly impact the functionality of EmployeeService,
+ * leading to potential cascading changes throughout the codebase.
+ */
 public class DependencyInversion {
-    /**
-     * Represents a service for managing employees.
-     * This class depends directly on low-level modules `EmailService` and `DatabaseService`,
-     * which violates the Dependency Inversion Principle (DIP). DIP states that high-level
-     * modules should not depend on low-level modules, but rather on abstractions.
-
-     * This tight coupling makes the code difficult to maintain and test, as changes to the
-     * low-level modules will impact the high-level module.
-     */
     private static class EmployeeService {
         private final EmailService emailService;
         private final DatabaseService databaseService;
